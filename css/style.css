@@ -1,0 +1,237 @@
+* {
+margin: 0;
+padding: 0;
+border: 0;
+line-height: 1.4em;
+box-sizing: border-box;
+text-decoration: none;
+outline: 0;
+}
+body{
+  background-color: #090909;
+}
+.noShow{
+  display: none;
+}
+section{
+  width: 100%;
+  height: 100vh;
+}
+#loading{
+  position: fixed;
+  z-index: 100;
+  line-height: 100vh;
+  background-color: #1c1c1c;
+  color: white;
+  line-height: 100vh;
+  text-align: center;
+  font-size: 2em;
+}
+#main{
+  position: relative;
+  width: 1300px;
+  height: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+#inventory{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 80px;
+  height: 640px;
+  background-color: #5D4037;
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+}
+#inventory div{
+  border: 1px dashed #3E2723;
+  width: 80px;
+  height: 80px;
+}
+#inventory div:hover{
+  background-color: #8D6E63;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0px 0px 30px 5px rgba(93,64,55,1);
+  -moz-box-shadow: inset 0px 0px 30px 5px rgba(93,64,55,1);
+  box-shadow: inset 0px 0px 30px 5px rgba(93,64,55,1);
+}
+.isActive{
+  background-color: #f92d2d;
+  -webkit-box-shadow: inset 0px 0px 50px 15px rgba(93,64,55,1);
+  -moz-box-shadow: inset 0px 0px 50px 15px rgba(93,64,55,1);
+  box-shadow: inset 0px 0px 50px 15px rgba(93,64,55,1);
+}
+.isActive:hover{
+  background-color: #f92d2d;
+  -webkit-box-shadow: inset 0px 0px 50px 15px rgba(93,64,55,1);
+  -moz-box-shadow: inset 0px 0px 50px 15px rgba(93,64,55,1);
+  box-shadow: inset 0px 0px 50px 15px rgba(93,64,55,1);
+}
+.rooms{
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 1220px;
+  height: 640px;
+  position: relative;
+  border-top: 1px solid #3E2723;
+  border-bottom: 1px solid #3E2723;
+  border-left: 1px solid #3E2723;
+}
+.h1{
+  display: none;
+  background-image: url('../images/h1.JPG');
+}
+.h2{
+  display: none;
+  background-image: url('../images/h2.JPG');
+}
+.h3{
+  display: none;
+  background-image: url('../images/h3.JPG');
+}
+.h3a{
+  display: none;
+  background-image: url('../images/h3a.JPG');
+}
+.h4{
+  display: none;
+  background-image: url('../images/h4.JPG');
+}
+.h4a{
+  display: none;
+  background-image: url('../images/h4a.JPG');
+}
+.h5{
+  display: none;
+  background-image: url('../images/h5.JPG');
+}
+.h5a{
+  display: none;
+  background-image: url('../images/h5a.JPG');
+}
+.h5a1{
+  display: none;
+  background-image: url('../images/h5a1.JPG');
+}
+.h5b{
+  display: none;
+  background-image: url('../images/h5b.JPG');
+}
+
+.left{
+  z-index: 100;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 640px;
+  cursor: pointer;
+  background-image: url('../images/left.png');
+  background-size: 30px 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.right{
+  z-index: 100;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 80px;
+  height: 640px;
+  cursor: pointer;
+  background-image: url('../images/right.png');
+  background-size: 30px 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.back{
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
+  left: 80px;
+  width: 1060px;
+  height: 80px;
+  cursor: pointer;
+  background-image: url('../images/back.png');
+  background-size: 50px 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/*fronts*/
+.front{
+  cursor: pointer;
+  z-index: 70;
+  position: absolute;
+}
+.h1toh2{
+  top: 30px;
+  left: 350px;
+  width: 380px;
+  height: 500px;
+}
+.h1toh3{
+  top: 30px;
+  left: 810px;
+  width: 180px;
+  height: 500px;
+}
+.h2toh5{
+  top: 30px;
+  left: 820px;
+  width: 100px;
+  height: 500px;
+}
+.h3toh3a{
+  top: 40px;
+  left: 470px;
+  width: 260px;
+  height: 500px;
+}
+.h4toh4a{
+  top: 0;
+  left: 670px;
+  width: 260px;
+  height: 100px;
+}
+.h5toh5a{
+  top: 0;
+  left: 290px;
+  width: 150px;
+  height: 70px;
+}
+.h5toh5b{
+  top: 0;
+  left: 700px;
+  width: 130px;
+  height: 100px;
+}
+.h5atoh5a1{
+  top: 200px;
+  left: 940px;
+  width: 250px;
+  height: 200px;
+}
+/*subjects*/
+.subject{
+  position: absolute;
+  z-index: 80;
+  background-size: cover;
+  cursor: pointer;
+}
+.key{
+  background-image: url('../images/key.png');
+  top: 255px;
+  left: 175px;
+  width: 140px;
+  height: 200px;
+}
+.pipe{
+  background-image: url('../images/pipe.jpg');
+  top: 200px;
+  left: 500px;
+  width: 30px;
+  height: 30px;
+}

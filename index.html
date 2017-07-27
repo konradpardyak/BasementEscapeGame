@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>EscapeRoom</title>
+    <title>BasementEscapeGame</title>
     <link rel="stylesheet" href="css/style.css">
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -18,17 +18,24 @@
   <section id="main">
 
     <div class="rooms h1" >
+      <div class="active lock2"></div>
+      <div class="door door2 move noShow" data-goto="r2"></div>
       <div class="front h1toh2 move" data-goto="h2"></div>
       <div class="front h1toh3 move" data-goto="h3"></div>
       <div class="back move" data-goto="h4"></div>
     </div>
 
     <div class="rooms h2" >
+      <div class="active lock3"></div>
+      <div class="door door3 move noShow" data-goto="r3"></div>
+      <div class="active lock4"></div>
+      <div class="door door4 move noShow" data-goto="r4"></div>
       <div class="front h2toh5 move" data-goto="h5"></div>
       <div class="back move" data-goto="h1"></div>
     </div>
 
     <div class="rooms h3" >
+      <div class="door door6 move noShow" data-goto="r6"></div>
       <div class="front h3toh3a move" data-goto="h3a"></div>
       <div class="back move" data-goto="h1"></div>
       <div class="left move" data-goto="h2"></div>
@@ -36,27 +43,34 @@
     </div>
 
     <div class="rooms h3a" >
+      <div class="active lock6"></div>
       <div class="back move" data-goto="h3"></div>
     </div>
 
     <div class="rooms h4" >
+      <div class="active lock1"></div>
+      <div class="door door1 move noShow" data-goto="r1"></div>
       <div class="front h4toh4a move" data-goto="h4a"></div>
+      <div class="door doorExit move noShow" data-goto="exit"></div>
       <div class="left move" data-goto="h3"></div>
       <div class="back move" data-goto="h1"></div>
     </div>
 
     <div class="rooms h4a" >
+      <div class="mainpipe"></div>
       <div class="back move" data-goto="h4"></div>
     </div>
 
     <div class="rooms h5" >
+      <div class="active lock5"></div>
+      <div class="door door5 move noShow" data-goto="r5"></div>
       <div class="front h5toh5a move" data-goto="h5a"></div>
       <div class="front h5toh5b move" data-goto="h5b"></div>
       <div class="back move" data-goto="h2"></div>
     </div>
 
     <div class="rooms h5a" >
-      <div class="subject key"></div>
+      <div class="subject key4"></div>
       <div class="front h5atoh5a1 move" data-goto="h5a1"></div>
       <div class="back move" data-goto="h5"></div>
     </div>
@@ -67,6 +81,72 @@
 
     <div class="rooms h5b" >
       <div class="back move" data-goto="h5"></div>
+    </div>
+
+    <div class="rooms r1" >
+      <div class="pipe"></div>
+      <div class="pressure noShow"></div>
+      <div class="back move" data-goto="h4"></div>
+    </div>
+
+    <div class="rooms r2" >
+      <div class="subject key5"></div>
+      <div class="active lock7"></div>
+      <div class="door openBox move noShow" data-goto="cardboard"></div>
+      <div class="back move" data-goto="h1"></div>
+    </div>
+
+    <div class="rooms cardboard" >
+      <div class="subject hydraulic"></div>
+      <div class="back move" data-goto="r2"></div>
+    </div>
+
+    <div class="rooms r3" >
+      <div class="subject key2"></div>
+      <div class="lever"></div>
+      <div class="doorHiddenSafe noShow">
+        <div class="subject key1"></div>
+      </div>
+      <div class="back move" data-goto="h2"></div>
+    </div>
+
+    <div class="rooms r4" >
+      <div class="buttons">
+        <div class="button">1</div>
+        <div class="button">2</div>
+        <div class="button">3</div>
+        <div class="button">4</div>
+        <div class="button">5</div>
+        <div class="button">6</div>
+        <div class="button">7</div>
+        <div class="button">8</div>
+        <div class="button">9</div>
+      </div>
+      <div class="buttonSub"></div>
+      <div class="buttonDel"></div>
+      <div class="buttonBar"></div>
+      <div class="doorSafe noShow">
+        <div class="subject key3"></div>
+      </div>
+      <div class="back move" data-goto="h2"></div>
+    </div>
+
+    <div class="rooms r5" >
+      <div class="subject stanley"></div>
+      <div class="subject crowbar"></div>
+      <div class="back move" data-goto="h5"></div>
+    </div>
+
+    <div class="rooms r6" >
+      <div class="powerBox powerBox1" data-color="0"></div>
+      <div class="powerBox powerBox2" data-color="0"></div>
+      <div class="powerBox powerBox3" data-color="0"></div>
+      <div class="powerBox powerBox4" data-color="0"></div>
+      <div class="back move " data-goto="h3"></div>
+    </div>
+
+    <div class="rooms exit" >
+      Freedom !!!
     </div>
 
     <div id="inventory">

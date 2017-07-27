@@ -70,6 +70,7 @@ section{
   -moz-box-shadow: inset 0px 0px 50px 15px rgba(93,64,55,1);
   box-shadow: inset 0px 0px 50px 15px rgba(93,64,55,1);
 }
+/*rooms*/
 .rooms{
   background-repeat: no-repeat;
   background-size: contain;
@@ -121,6 +122,43 @@ section{
   background-image: url('../images/h5b.JPG');
 }
 
+.r1{
+  display: none;
+  background-image: url('../images/r1.JPG');
+}
+.r2{
+  display: none;
+  background-image: url('../images/r2.JPG');
+}
+.r3{
+  display: none;
+  background-image: url('../images/r3.JPG');
+}
+.r4{
+  display: none;
+  background-image: url('../images/r4.JPG');
+}
+.r5{
+  display: none;
+  background-image: url('../images/r5.JPG');
+}
+.r6{
+  display: none;
+  background-image: url('../images/r6.JPG');
+}
+.cardboard{
+  display: none;
+  background-image: url('../images/cardboard.JPG');
+}
+.exit{
+  display: none;
+  color: white;
+  background-color: #474747;
+  line-height: 638px;
+  text-align: center;
+  font-size: 26px;
+}
+/*arrows*/
 .left{
   z-index: 100;
   position: absolute;
@@ -221,17 +259,308 @@ section{
   background-size: cover;
   cursor: pointer;
 }
-.key{
-  background-image: url('../images/key.png');
+.key1{
+  background-image: url('../images/key1.png');
+  top: 120px;
+  left: 56px;
+  width: 60px;
+  height: 30px;
+}
+.key2{
+  background-image: url('../images/key2.png');
+  top: 95px;
+  left: 142px;
+  width: 32px;
+  height: 89px;
+}
+.key3{
+  background-image: url('../images/key3.png');
+  top: 150px;
+  left: 66px;
+  width: 80px;
+  height: 35px;
+}
+.key4{
+  background-image: url('../images/key4.png');
   top: 255px;
   left: 175px;
   width: 140px;
   height: 200px;
 }
-.pipe{
-  background-image: url('../images/pipe.jpg');
-  top: 200px;
-  left: 500px;
+.key5{
+  background-image: url('../images/key5.png');
+  top: 154px;
+  left: 781px;
+  width: 80px;
+  height: 109px;
+}
+.crowbar{
+  background-image: url('../images/crowbar.png');
+  top: 335px;
+  left: 755px;
+  width: 50px;
+  height: 110px;
+}
+.stanley{
+  background-image: url('../images/stanley.png');
+  top: 500px;;
+  left: 300px;
+  width: 50px;
+  height: 50px;
+}
+.hydraulic{
+  background-image: url('../images/hydraulic.png');
+  top: 200px;;
+  left: 380px;
+  width: 358px;
+  height: 274px;
+}
+/*doors*/
+.door{
+  cursor: pointer;
+  z-index: 20;
+  position: absolute;
+}
+.door1{
+  background-image: url('../images/door1.JPG');
+  top: 0;
+  left: 810px;
+  width: 75px;
+  height: 638px;
+}
+.door2{
+  background-image: url('../images/door2.JPG');
+  top: 0;
+  left: 210px;
+  width: 126px;
+  height: 638px;
+}
+.door3{
+  background-image: url('../images/door3.JPG');
+  top: 0;
+  left: 240px;
+  width: 158px;
+  height: 638px;
+}
+.door4{
+  background-image: url('../images/door4.JPG');
+  top: 0;
+  left: 520px;
+  width: 262px;
+  height: 638px;
+}
+.door5{
+  background-image: url('../images/door5.JPG');
+  top: 0;
+  left: 320px;
+  width: 113px;
+  height: 638px;
+}
+.door6{
+  background-image: url('../images/door6.JPG');
+  top: 0;
+  left: 450px;
+  width: 300px;
+  height: 638px;
+}
+.doorExit{
+  background-image: url('../images/doorExit.JPG');
+  top: 102px;
+  left: 522px;
+  width: 239px;
+  height: 513px;
+}
+/*actives*/
+.active{
+  cursor: pointer;
+  z-index: 10;
+  position: absolute;
+}
+.lock1{
+  top: 0;
+  left: 810px;
+  width: 75px;
+  height: 638px;
+}
+.lock2{
+  top: 0;
+  left: 210px;
+  width: 126px;
+  height: 638px;
+}
+.lock3{
+  top: 0;
+  left: 240px;
+  width: 158px;
+  height: 638px;
+}
+.lock4{
+  top: 0;
+  left: 520px;
+  width: 262px;
+  height: 638px;
+}
+.lock5{
+  top: 0;
+  left: 320px;
+  width: 113px;
+  height: 638px;
+}
+.lock6{
+  top: 30px;
+  left: 800px;
+  width: 70px;
+  height: 500px;
+}
+/*Jig Power*/
+.powerBox{
   width: 30px;
   height: 30px;
+  background: #666666;
+  cursor: pointer;
+  z-index: 20;
+  position: absolute;
+}
+.powerBox1{
+  top:240px;
+  left: 673px;
+}
+.powerBox2{
+  top:309px;
+  left: 669px;
+}
+.powerBox3{
+  top:370px;
+  left: 670px;
+}
+.powerBox4{
+  top:460px;
+  left: 663px;
+}
+/*Jig Safe*/
+.buttons{
+  background-color: grey;
+  position: absolute;
+  z-index: 20;
+  top: 370px;
+  left: 545px;
+  width: 90px;
+  height: 90px;
+}
+.button{
+  float: left;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.buttonSub{
+  background-color: green;
+  position: absolute;
+  z-index: 20;
+  top: 375px;
+  left: 495px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+.buttonDel{
+  background-color: red;
+  position: absolute;
+  z-index: 20;
+  top: 410px;
+  left: 495px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+.buttonBar{
+  background-color: #acffaf;
+  position: absolute;
+  z-index: 20;
+  top: 328px;
+  left: 495px;
+  width: 140px;
+  height: 30px;
+  text-align: right;
+  font-size: 20px;
+  line-height: 30px;
+}
+.doorSafe{
+  top: 288px;
+  left: 455px;
+  width: 239px;
+  height: 187px;
+  z-index: 40;
+  position: absolute;
+  background-image: url('../images/doorSafe.JPG');
+}
+/*Jig hiddenSafe*/
+.lever{
+  position: absolute;
+  top: 205px;
+  left: 75px;
+  width: 90px;
+  height: 90px;
+  cursor: pointer;
+}
+.doorHiddenSafe{
+  top: 176px;
+  left: 434px;
+  width: 239px;
+  height: 159px;
+  z-index: 40;
+  position: absolute;
+  background-image: url('../images/doorHiddenSafe.JPG');
+}
+/*Jig cardboard*/
+.openBox{
+  top: 426px;
+  left: 94px;
+  width: 333px;
+  height: 210px;
+  cursor: pointer;
+  z-index: 40;
+  position: absolute;
+  background-image: url('../images/openBox.JPG');
+}
+.lock7{
+  top: 426px;
+  left: 94px;
+  width: 333px;
+  height: 210px;
+}
+/*Jig pressure*/
+.pipe{
+  position: absolute;
+  top: 485px;
+  left: 360px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.pressure{
+  top: 513px;
+  left: 812px;
+  width: 30px;
+  height: 30px;
+  z-index: 40;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #28ff42;
+}
+/*Jig mainpipe*/
+.mainpipe{
+  position: absolute;
+  top: 30px;
+  left: 720px;
+  width: 270px;
+  height: 250px;
+  cursor: pointer;
 }

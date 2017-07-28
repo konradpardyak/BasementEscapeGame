@@ -378,8 +378,14 @@ $(window).on('load', function() {
   }
 
 //----------------------------------------------------Main
-
+  let $start = $('#start');
+  let $button = $start.find('button');
   let game = new Game();
-  game.startNewGame();
+
+  $button.on('click',function(){
+    $start.css("display","none");
+
+    game.startNewGame();
+  });
 
 });

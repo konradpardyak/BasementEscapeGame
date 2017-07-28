@@ -51,6 +51,8 @@ $(window).on('load', function() {
           this.isInInventory = true;
           $inventory[i].classList.remove('empty');
           this.inventory.addSubject(this);
+          let audio = new Audio('sounds/item.wav');
+          audio.play();
         }
       }
     }
@@ -111,6 +113,8 @@ $(window).on('load', function() {
           $(element).css('background-color',color[number[index] - 1]);
           if(number[0]==6 && number[1]==8 && number[2]==7 && number[3]==4){
             game.showDialogues("Something crackled");
+            let audio = new Audio('sounds/power.wav');
+            audio.play();
             console.log('solved!');
             $powerBox.off();
             self.activate();
@@ -127,26 +131,35 @@ $(window).on('load', function() {
       let $buttonDel = $('.buttonDel');
       let $buttonBar = $('.buttonBar');
       let pin = "";
+
       $button.each(function(index,element){
         $(element).on('click',function(){
           if(pin.length <10){
             pin += element.innerText;
             console.log(pin);
             $buttonBar.text(pin);
+            let audioBeep = new Audio('sounds/beep.wav');
+            audioBeep.play();
           }
         });
       });
       $buttonDel.on('click',function(){
         pin = "";
         $buttonBar.text(pin);
+        let audioBeep = new Audio('sounds/beep.wav');
+        audioBeep.play();
       });
       $buttonSub.on('click',function(){
         if(pin === "1626364656"){
           console.log('solved!');
           let $doorSafe = $('.doorSafe');
           $doorSafe.css("display","block");
+          let audioSafe = new Audio('sounds/safe.wav');
+          audioSafe.play();
         } else {
           game.showDialogues("Wrong password");
+          let audioBeep = new Audio('sounds/wrong.wav');
+          audioBeep.play();
         }
       });
     }
@@ -164,8 +177,12 @@ $(window).on('load', function() {
           console.log('open');
           let $doorHiddenSafe = $('.doorHiddenSafe');
           $doorHiddenSafe.css("display","block");
+          let audioSafe = new Audio('sounds/safe.wav');
+          audioSafe.play();
         } else {
           game.showDialogues("No power");
+          let audio = new Audio('sounds/tick.wav');
+          audio.play();
         }
       });
     }
@@ -185,9 +202,13 @@ $(window).on('load', function() {
           $pressure.css("display","block");
           self.isActive = true;
           console.log('pressure' + self.isActive);
+          let audio = new Audio('sounds/pressure.wav');
+          audio.play();
         } else {
           console.log("I can't turn it");
           game.showDialogues("I can't turn it");
+          let audio = new Audio('sounds/groan.mp3');
+          audio.play();
         }
       });
     }
@@ -205,9 +226,13 @@ $(window).on('load', function() {
           let $doorExit = $('.doorExit');
           $doorExit.css("display","block");
           game.showNewScene('h4');
+          let audio = new Audio('sounds/maindoor.wav');
+          audio.play();
         } else{
           console.log();
           game.showDialogues("There is no pressure");
+          let audio = new Audio('sounds/nopressure.wav');
+          audio.play();
         }
       })
     }
@@ -226,6 +251,14 @@ $(window).on('load', function() {
         $change.addClass('noShow');
         console.log('Change!!!');
         game.showNewScene('h3');
+        let audio = new Audio('sounds/crowbar.wav');
+        audio.play();
+      } else if(this.name == "openBox"){
+        let audio = new Audio('sounds/box.wav');
+        audio.play();
+      } else {
+        let audio = new Audio('sounds/opendoor.wav');
+        audio.play();
       }
     }
   }
@@ -248,6 +281,8 @@ $(window).on('load', function() {
         } else{
           console.log(self.text);
           game.showDialogues(self.text);
+          let audio = new Audio('sounds/close.wav');
+          audio.play();
         }
       });
     }

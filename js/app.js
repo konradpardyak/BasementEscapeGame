@@ -110,6 +110,7 @@ $(window).on('load', function() {
           }
           $(element).css('background-color',color[number[index] - 1]);
           if(number[0]==6 && number[1]==8 && number[2]==7 && number[3]==4){
+            game.showDialogues("Something crackled");
             console.log('solved!');
             $powerBox.off();
             self.activate();
@@ -144,6 +145,8 @@ $(window).on('load', function() {
           console.log('solved!');
           let $doorSafe = $('.doorSafe');
           $doorSafe.css("display","block");
+        } else {
+          game.showDialogues("Wrong password");
         }
       });
     }
@@ -161,6 +164,8 @@ $(window).on('load', function() {
           console.log('open');
           let $doorHiddenSafe = $('.doorHiddenSafe');
           $doorHiddenSafe.css("display","block");
+        } else {
+          game.showDialogues("No power");
         }
       });
     }
@@ -182,6 +187,7 @@ $(window).on('load', function() {
           console.log('pressure' + self.isActive);
         } else {
           console.log("I can't turn it");
+          game.showDialogues("I can't turn it");
         }
       });
     }
@@ -200,7 +206,8 @@ $(window).on('load', function() {
           $doorExit.css("display","block");
           game.showNewScene('h4');
         } else{
-          console.log('There is no pressure');
+          console.log();
+          game.showDialogues("There is no pressure");
         }
       })
     }
@@ -240,6 +247,7 @@ $(window).on('load', function() {
           self.door.openDoor();
         } else{
           console.log(self.text);
+          game.showDialogues(self.text);
         }
       });
     }
@@ -304,7 +312,7 @@ $(window).on('load', function() {
       lock5.watch();
       let lock6 = new Active('lock6', crowbar, door6, "I can't move it");
       lock6.watch();
-      let lock7 = new Active('lock7', stanley, openBox, "This tape is strong");
+      let lock7 = new Active('lock7', stanley, openBox, "This tape is too strong");
       lock7.watch();
       //loading scenes
       this.showNewScene(this.scene);
@@ -314,6 +322,14 @@ $(window).on('load', function() {
       $('.'+ this.scene).css("display","none");
       $('.'+ newScene).css("display","block");
       this.scene = newScene;
+    }
+    showDialogues(text){
+      //find dialogues
+      let $dialogues = $('#dialogues');
+      $dialogues.html( "<p>"+text+"</p>" );
+      setTimeout(function(){
+        $dialogues.html("");
+      }, 2000);
     }
     watchMoves() {
       let $moves = $('.move');

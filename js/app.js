@@ -9,9 +9,6 @@ $(window).on('load', function() {
 
     addSubject(subject) {
       this.subjectsInside.push(subject);
-      console.log(this.subjectsInside + " added to inventory");
-      console.log("Subjects in inventory: " + this.subjectsInside);
-      console.log(this.subjectsInside);
       this.watch();
     }
 
@@ -51,8 +48,6 @@ $(window).on('load', function() {
           this.isInInventory = true;
           $inventory[i].classList.remove('empty');
           this.inventory.addSubject(this);
-          let audio = new Audio('sounds/item.wav');
-          audio.play();
         }
       }
     }
@@ -83,9 +78,11 @@ $(window).on('load', function() {
     }
 
     watch() {
+      let audioItem = new Audio('sounds/item.wav');
       let self = this;
       $('.' + this.name).on('click',function(){
         self.addToInventory();
+        audioItem.play();
       })
     }
 
@@ -101,9 +98,10 @@ $(window).on('load', function() {
     }
     watch(){
       let self = this;
+      let audioPower = new Audio('sounds/power.wav');
       let $powerBox = $('.powerBox');
       let number=[0,0,0,0];
-      let color=['#6eba1a','#ff0000','#1e20d9','#e63bfb','#ffe81d','#c17c5a','#ff7f17','#ffffff','#000000'];
+      let color=['#6eba1a','#ff0000','#1e20d9','#e63bfb','#ffe81d','#703f21','#ff7f17','#ffffff','#000000'];
       $powerBox.each(function(index,element){
         $(element).on('click',function(){
           number[index]++;
@@ -113,8 +111,7 @@ $(window).on('load', function() {
           $(element).css('background-color',color[number[index] - 1]);
           if(number[0]==6 && number[1]==8 && number[2]==7 && number[3]==4){
             game.showDialogues("Something crackled");
-            let audio = new Audio('sounds/power.wav');
-            audio.play();
+            audioPower.play();
             console.log('solved!');
             $powerBox.off();
             self.activate();
@@ -126,6 +123,8 @@ $(window).on('load', function() {
 
   class Safe {
     watch(){
+      let audioBeep = new Audio('sounds/beep.wav');
+      let audioWrong = new Audio('sounds/wrong.wav');
       let $button = $('.button');
       let $buttonSub = $('.buttonSub');
       let $buttonDel = $('.buttonDel');
@@ -138,17 +137,17 @@ $(window).on('load', function() {
             pin += element.innerText;
             console.log(pin);
             $buttonBar.text(pin);
-            let audioBeep = new Audio('sounds/beep.wav');
             audioBeep.play();
           }
         });
       });
+
       $buttonDel.on('click',function(){
         pin = "";
         $buttonBar.text(pin);
-        let audioBeep = new Audio('sounds/beep.wav');
         audioBeep.play();
       });
+
       $buttonSub.on('click',function(){
         if(pin === "1626364656"){
           console.log('solved!');
@@ -158,8 +157,7 @@ $(window).on('load', function() {
           audioSafe.play();
         } else {
           game.showDialogues("Wrong password");
-          let audioBeep = new Audio('sounds/wrong.wav');
-          audioBeep.play();
+          audioWrong.play();
         }
       });
     }
@@ -223,8 +221,8 @@ $(window).on('load', function() {
       let $mainpipe = $('.mainpipe');
       $mainpipe.on('click', function(){
         if(self.pressure.isActive){
-          let $doorExit = $('.doorExit');
-          $doorExit.css("display","block");
+          let $openExit = $('.openExit');
+          $openExit.css("display","block");
           game.showNewScene('h4');
           let audio = new Audio('sounds/maindoor.wav');
           audio.play();
@@ -234,7 +232,50 @@ $(window).on('load', function() {
           let audio = new Audio('sounds/nopressure.wav');
           audio.play();
         }
-      })
+      });
+    }
+  }
+
+  class OpenPower {
+    constructor(subject){
+      this.subject = subject;
+    }
+    watch() {
+      let self = this;
+      let $doorPower = $('.doorPower');
+      let $h3toh3a = $('.h3toh3a');
+      let $openPower = $('.openPower');
+      let audioCrowbar = new Audio('sounds/crowbar.wav');
+      $doorPower.on('click',function(){
+        if(self.subject.isActive){
+          $h3toh3a.addClass('noShow');
+          $openPower.removeClass('noShow')
+          game.showNewScene('h3');
+          audioCrowbar.play();
+        } else {
+          game.showDialogues("I can't move it");
+        }
+      });
+    }
+  }
+
+  class Cardboard {
+    constructor(subject){
+      this.subject = subject;
+    }
+    watch() {
+      let $cardboardArea = $('.cardboardArea');
+      let $openBox = $('.openBox');
+      let audioBox = new Audio('sounds/box.wav');
+      let self = this;
+      $cardboardArea.on('click', function(){
+        if(self.subject.isActive){
+          $openBox.removeClass('noShow');
+          audioBox.play();
+        } else {
+          game.showDialogues("This tape is too strong");
+        }
+      });
     }
   }
 //----------------------------------------------------Doors
@@ -245,21 +286,9 @@ $(window).on('load', function() {
     }
     openDoor() {
       let $door = $('.' + this.name);
+      let audioOpenDoor = new Audio('sounds/opendoor.wav');
       $door.removeClass('noShow');
-      if(this.name == "door6"){
-        let $change = $('.h3toh3a');
-        $change.addClass('noShow');
-        console.log('Change!!!');
-        game.showNewScene('h3');
-        let audio = new Audio('sounds/crowbar.wav');
-        audio.play();
-      } else if(this.name == "openBox"){
-        let audio = new Audio('sounds/box.wav');
-        audio.play();
-      } else {
-        let audio = new Audio('sounds/opendoor.wav');
-        audio.play();
-      }
+      audioOpenDoor.play();
     }
   }
 
@@ -274,15 +303,15 @@ $(window).on('load', function() {
     }
     watch() {
       let $active = $('.' + this.name);
+      let audioClose = new Audio('sounds/close.wav');
       let self = this;
       $active.on('click', function(){
         if(self.subject.isActive){
           self.door.openDoor();
         } else{
           console.log(self.text);
-          game.showDialogues(self.text);
-          let audio = new Audio('sounds/close.wav');
-          audio.play();
+          game.showDialogues("Locked");
+          audioClose.play();
         }
       });
     }
@@ -297,6 +326,7 @@ $(window).on('load', function() {
     startNewGame() {
       //loading inventoy
       let inventory = new Inventory();
+
       //loading subjects
       let key1 = new Subject('key1', inventory);
       key1.watch();
@@ -314,58 +344,61 @@ $(window).on('load', function() {
       stanley.watch();
       let hydraulic = new Subject('hydraulic', inventory);
       hydraulic.watch();
-      //loading cubby
-      let powerBox = new PowerBox();
-      powerBox.watch();
+
+      //loading jigsaws
       let safe = new Safe();
       safe.watch();
+      let openPower = new OpenPower(crowbar);
+      openPower.watch();
+      let powerBox = new PowerBox();
+      powerBox.watch();
       let lever = new Lever(powerBox);
       lever.watch();
       let pressure = new Pressure(hydraulic);
       pressure.watch();
       let mainpipe = new MainPipe(pressure);
       mainpipe.watch();
+      let cardboard = new Cardboard(stanley);
+      cardboard.watch();
+
       //loading doors
       let door1 = new Door('door1');
       let door2 = new Door('door2');
       let door3 = new Door('door3');
       let door4 = new Door('door4');
       let door5 = new Door('door5');
-      let door6 = new Door('door6');
-      let openBox = new Door('openBox');
-      let doorEexit = new Door('doorExit');
+
       //loading actives
-      let lock1 = new Active('lock1', key1, door1, "Locked");
+      let lock1 = new Active('lock1', key1, door1);
       lock1.watch();
-      let lock2 = new Active('lock2', key2, door2, "Locked");
+      let lock2 = new Active('lock2', key2, door2);
       lock2.watch();
-      let lock3 = new Active('lock3', key3, door3, "Locked");
+      let lock3 = new Active('lock3', key3, door3);
       lock3.watch();
-      let lock4 = new Active('lock4', key4, door4, "Locked");
+      let lock4 = new Active('lock4', key4, door4);
       lock4.watch();
-      let lock5 = new Active('lock5', key5, door5, "Locked");
+      let lock5 = new Active('lock5', key5, door5);
       lock5.watch();
-      let lock6 = new Active('lock6', crowbar, door6, "I can't move it");
-      lock6.watch();
-      let lock7 = new Active('lock7', stanley, openBox, "This tape is too strong");
-      lock7.watch();
+
       //loading scenes
       this.showNewScene(this.scene);
       this.watchMoves();
     }
+
     showNewScene(newScene) {
       $('.'+ this.scene).css("display","none");
       $('.'+ newScene).css("display","block");
       this.scene = newScene;
     }
+
     showDialogues(text){
-      //find dialogues
       let $dialogues = $('#dialogues');
       $dialogues.html( "<p>"+text+"</p>" );
       setTimeout(function(){
         $dialogues.html("");
       }, 2000);
     }
+
     watchMoves() {
       let $moves = $('.move');
       let self = this;
@@ -384,7 +417,6 @@ $(window).on('load', function() {
 
   $button.on('click',function(){
     $start.css("display","none");
-
     game.startNewGame();
   });
 

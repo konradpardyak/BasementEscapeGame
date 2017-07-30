@@ -167,7 +167,6 @@ section{
   display: none;
   background-image: url('../images/h5b.JPG');
 }
-
 .r1{
   display: none;
   background-image: url('../images/r1.JPG');
@@ -402,15 +401,8 @@ section{
   width: 113px;
   height: 638px;
 }
-.door6{
-  background-image: url('../images/door6.JPG');
-  top: 0;
-  left: 450px;
-  width: 300px;
-  height: 638px;
-}
-.doorExit{
-  background-image: url('../images/doorExit.JPG');
+.openExit{
+  background-image: url('../images/openExit.JPG');
   top: 102px;
   left: 522px;
   width: 239px;
@@ -452,13 +444,27 @@ section{
   width: 113px;
   height: 638px;
 }
-.lock6{
+/*Jigsaw openPower*/
+.doorPower{
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
   top: 30px;
   left: 770px;
   width: 100px;
   height: 500px;
 }
-/*Jig Power*/
+.openPower{
+  position: absolute;
+  z-index: 40;
+  cursor: pointer;
+  background-image: url('../images/openPower.JPG');
+  top: 0;
+  left: 450px;
+  width: 300px;
+  height: 638px;
+}
+/*Jigsaw Power*/
 .powerBox{
   width: 30px;
   height: 30px;
@@ -483,7 +489,7 @@ section{
   top:460px;
   left: 663px;
 }
-/*Jig Safe*/
+/*Jigsaw Safe*/
 .buttons{
   background-color: grey;
   position: absolute;
@@ -547,7 +553,7 @@ section{
   position: absolute;
   background-image: url('../images/doorSafe.JPG');
 }
-/*Jig hiddenSafe*/
+/*Jigsaw hiddenSafe*/
 .lever{
   position: absolute;
   top: 205px;
@@ -565,7 +571,16 @@ section{
   position: absolute;
   background-image: url('../images/doorHiddenSafe.JPG');
 }
-/*Jig cardboard*/
+/*Jigsaw cardboard*/
+.cardboardArea{
+  top: 426px;
+  left: 94px;
+  width: 333px;
+  height: 210px;
+  cursor: pointer;
+  z-index: 10;
+  position: absolute;
+}
 .openBox{
   top: 426px;
   left: 94px;
@@ -576,13 +591,7 @@ section{
   position: absolute;
   background-image: url('../images/openBox.JPG');
 }
-.lock7{
-  top: 426px;
-  left: 94px;
-  width: 333px;
-  height: 210px;
-}
-/*Jig pressure*/
+/*Jigsaw pressure*/
 .pipe{
   position: absolute;
   top: 485px;
@@ -601,7 +610,7 @@ section{
   border-radius: 50%;
   background-color: #28ff42;
 }
-/*Jig mainpipe*/
+/*Jigsaw mainpipe*/
 .mainpipe{
   position: absolute;
   top: 30px;

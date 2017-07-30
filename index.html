@@ -15,13 +15,11 @@
     Loading...
   </section>
 
-
-
   <section id="main">
 
-    <section id="start">
+    <div id="start">
       <button type="button">New Game</button>
-    </section>
+    </div>
 
     <div id="dialogues">
     </div>
@@ -44,7 +42,7 @@
     </div>
 
     <div class="rooms h3" >
-      <div class="door door6 move noShow" data-goto="r6"></div>
+      <div class="openPower move noShow" data-goto="r6"></div>
       <div class="front h3toh3a move" data-goto="h3a"></div>
       <div class="back move" data-goto="h1"></div>
       <div class="left move" data-goto="h2"></div>
@@ -52,7 +50,7 @@
     </div>
 
     <div class="rooms h3a" >
-      <div class="active lock6"></div>
+      <div class="doorPower"></div>
       <div class="back move" data-goto="h3"></div>
     </div>
 
@@ -60,7 +58,7 @@
       <div class="active lock1"></div>
       <div class="door door1 move noShow" data-goto="r1"></div>
       <div class="front h4toh4a move" data-goto="h4a"></div>
-      <div class="door doorExit move noShow" data-goto="exit"></div>
+      <div class="door openExit move noShow" data-goto="exit"></div>
       <div class="left move" data-goto="h3"></div>
       <div class="back move" data-goto="h1"></div>
     </div>
@@ -100,8 +98,8 @@
 
     <div class="rooms r2" >
       <div class="subject key5"></div>
-      <div class="active lock7"></div>
-      <div class="door openBox move noShow" data-goto="cardboard"></div>
+      <div class="cardboardArea"></div>
+      <div class="openBox move noShow" data-goto="cardboard"></div>
       <div class="back move" data-goto="h1"></div>
     </div>
 

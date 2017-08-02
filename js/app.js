@@ -415,9 +415,10 @@ $(window).on('load', function() {
   let $button = $start.find('button');
   let game = new Game();
 
+  game.startNewGame();
+
   $button.on('click',function(){
     $start.css("display","none");
-    game.startNewGame();
   });
 
 });

@@ -30,16 +30,14 @@ section{
   top: 0;
   left: auto;
   right: auto;
-  width: 1299px;
-  height: 638px;
-  cursor: pointer;
+  width: 1300px;
+  height: 640px;
   background-image: url('../images/start.JPG');
   background-size: 1300 640px;
   background-repeat: no-repeat;
   background-position: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5px;
 }
 #start button{
   cursor: pointer;

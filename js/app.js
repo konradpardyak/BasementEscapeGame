@@ -281,33 +281,21 @@ $(window).on('load', function() {
 //----------------------------------------------------Doors
 
   class Door {
-    constructor(name) {
-      this.name = name;
-    }
-    openDoor() {
-      let $door = $('.' + this.name);
-      let audioOpenDoor = new Audio('sounds/opendoor.wav');
-      $door.removeClass('noShow');
-      audioOpenDoor.play();
-    }
-  }
-
-//----------------------------------------------------Actives
-
-  class Active {
-    constructor(name, subject, door, text) {
+    constructor(name, subject, door) {
       this.name = name;
       this.subject = subject;
       this.door = door;
-      this.text = text;
     }
     watch() {
-      let $active = $('.' + this.name);
+      let $area = $('.' + this.name);
+      let $door = $('.' + this.door);
       let audioClose = new Audio('sounds/close.wav');
+      let audioOpenDoor = new Audio('sounds/opendoor.wav');
       let self = this;
-      $active.on('click', function(){
+      $area.on('click', function(){
         if(self.subject.isActive){
-          self.door.openDoor();
+          $door.removeClass('noShow');
+          audioOpenDoor.play();
         } else{
           console.log(self.text);
           game.showDialogues("Locked");
@@ -362,22 +350,15 @@ $(window).on('load', function() {
       cardboard.watch();
 
       //loading doors
-      let door1 = new Door('door1');
-      let door2 = new Door('door2');
-      let door3 = new Door('door3');
-      let door4 = new Door('door4');
-      let door5 = new Door('door5');
-
-      //loading actives
-      let lock1 = new Active('lock1', key1, door1);
+      let lock1 = new Door('lock1', key1, 'door1');
       lock1.watch();
-      let lock2 = new Active('lock2', key2, door2);
+      let lock2 = new Door('lock2', key2, 'door2');
       lock2.watch();
-      let lock3 = new Active('lock3', key3, door3);
+      let lock3 = new Door('lock3', key3, 'door3');
       lock3.watch();
-      let lock4 = new Active('lock4', key4, door4);
+      let lock4 = new Door('lock4', key4, 'door4');
       lock4.watch();
-      let lock5 = new Active('lock5', key5, door5);
+      let lock5 = new Door('lock5', key5, 'door5');
       lock5.watch();
 
       //loading scenes

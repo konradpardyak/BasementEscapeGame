@@ -38,6 +38,7 @@ section{
   background-position: center;
   margin-left: auto;
   margin-right: auto;
+  display: none;
 }
 #start button{
   cursor: pointer;

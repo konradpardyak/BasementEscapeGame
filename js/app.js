@@ -396,6 +396,7 @@ $(window).on('load', function() {
   let $button = $start.find('button');
   let game = new Game();
 
+  $start.css("display", "block");
   game.startNewGame();
 
   $button.on('click',function(){
